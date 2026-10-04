@@ -163,7 +163,7 @@ MIT License
 ## 👤 Author
 
 **Subham Khandual**
-- GitHub: [@SubhamKhandual007](https://github.com/SubhamKhandual007)
+- GitHub: [@SubhamKhandual](https://github.com/subham-khandual)
 
 ## 🤝 Contributing
 
