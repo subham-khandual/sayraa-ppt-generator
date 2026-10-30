@@ -1,6 +1,11 @@
 .env
+.env.*
+!.env.example
+.codex/.approved_git_command
 __pycache__/
 *.pyc
 *.pptx
+.pytest_cache/
+.ruff_cache/
 .vscode/
 venv/

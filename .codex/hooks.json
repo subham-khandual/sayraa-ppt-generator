@@ -1,0 +1,19 @@
+{
+  "description": "Repository safety hooks for Sayraa AI PPT Generator.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^Bash$",
+        "hooks": [
+          {
+            "type": "command",
+            "command_windows": "py -3 \"D:\\clone projects\\Sayraa-AI-PPT-Generator\\.codex\\hooks\\git_approval.py\"",
+            "command": "python3 \"D:/clone projects/Sayraa-AI-PPT-Generator/.codex/hooks/git_approval.py\"",
+            "statusMessage": "Checking Git approval",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -93,11 +93,11 @@ document.getElementById('pptForm').addEventListener('submit', function (e) {
         }
     }, 500);
 
-    // Fallback timeout after 20 seconds in case download finishes but cookie is ignored/blocked
+    // Keep the UI wait aligned with the server's 18-second Gemini request limit.
     const fallbackTimeout = setTimeout(() => {
         cleanup();
-        statusText.textContent = 'Success! Your masterpiece is ready.';
-        statusText.className = 'text-success';
+        statusText.textContent = 'Generation timed out. Please try again with fewer slides.';
+        statusText.className = 'text-danger';
     }, 20000);
 
     function cleanup() {

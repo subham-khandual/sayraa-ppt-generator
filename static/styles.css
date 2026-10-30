@@ -19,7 +19,6 @@ body {
 }
 
 .main-container {
-    padding-bottom: 60px;
     contain: layout style;
 }
 
@@ -27,8 +26,18 @@ header {
     background: var(--primary);
     background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
     color: white;
-    padding: 3rem 1rem;
-    border-bottom: 4px solid var(--accent);
+    padding: 0.8rem 1rem;
+    border-bottom: 3px solid var(--accent);
+}
+
+header .display-4 {
+    font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+    line-height: 1.15;
+}
+
+header .lead {
+    margin: 0.2rem 0 0;
+    font-size: 0.88rem;
 }
 
 .card {
@@ -37,13 +46,54 @@ header {
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-    transform: translateY(-8px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.generator-section {
+    padding-top: 0;
+    padding-bottom: 1rem;
+}
+
+.generator-section > .row:first-child {
+    min-height: calc(100vh - 122px);
+    align-items: center;
+}
+
+.card {
+    border-radius: 14px;
+}
+
+.card-body {
+    padding: 1rem !important;
+}
+
+.card-title {
+    margin-bottom: 0.7rem !important;
+    font-size: 1.15rem;
+}
+
+.form-label {
+    margin-bottom: 0.25rem;
+    font-size: 0.82rem;
+}
+
+.form-control, .form-select {
+    min-height: 38px;
+    padding: 0.42rem 0.7rem;
+    border-radius: 9px;
+    font-size: 0.9rem;
+}
+
+#pptForm .mb-3 {
+    margin-bottom: 0.55rem !important;
+}
+
+#pptForm .row > [class*="col-"] {
+    margin-bottom: 0.45rem !important;
 }
 
 .form-label {
@@ -102,27 +152,31 @@ header {
 
 footer {
     background: #0f172a;
-    padding: 1.5rem 0;
+    padding: 0.45rem 0 !important;
     font-weight: 300;
+    font-size: 0.72rem;
 }
 
-/* Animations - using transform only for GPU compositing */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.container {
-    animation: fadeIn 0.8s ease-out;
+@media (min-width: 769px) {
+    .features-showcase {
+        display: none;
+    }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    header {
-        padding: 2rem 1rem;
+    .generator-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
-    .display-4 {
-        font-size: 2.5rem;
+    .generator-section > .row:first-child {
+        min-height: auto;
+    }
+    header {
+        padding: 1rem;
+    }
+    header .display-4 {
+        font-size: 1.6rem;
     }
     footer {
         position: relative !important;
@@ -130,5 +184,8 @@ footer {
     /* Ensure tap targets are at least 48px for mobile */
     .btn, .form-control, .form-select {
         min-height: 48px;
+    }
+    .features-showcase {
+        display: flex;
     }
 }

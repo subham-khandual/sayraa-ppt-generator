@@ -4,6 +4,5 @@ Pillow
 Flask
 gunicorn
 python-pptx
-google-generativeai
+google-genai
 python-dotenv
-groq
