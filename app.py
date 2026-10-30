@@ -2,7 +2,7 @@ import os
 import re
 import io
 import json
-from flask import Flask, request, send_file, render_template, jsonify
+from flask import Flask, request, send_file, render_template, jsonify, redirect, url_for
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.enum.text import PP_ALIGN, MSO_AUTO_SIZE, MSO_ANCHOR
@@ -14,7 +14,7 @@ from dotenv import load_dotenv
  
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='public/static', static_url_path='/static')
 
 
 # Load environment variables
@@ -415,11 +415,11 @@ def index():
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_file(os.path.join(app.root_path, 'static', 'logo-192.png'), mimetype='image/png')
+    return redirect(url_for('static', filename='logo-192.png'))
 
 @app.route('/manifest.json')
 def manifest():
-    return send_file(os.path.join(app.root_path, 'static', 'manifest.json'), mimetype='application/manifest+json')
+    return redirect(url_for('static', filename='manifest.json'))
 
 @app.route('/sitemap.xml')
 def sitemap():

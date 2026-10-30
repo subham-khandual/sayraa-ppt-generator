@@ -35,7 +35,7 @@ The app runs at `http://localhost:5000`. `GEMINI_MODEL` can override the default
 
 ## Deployment
 
-The included `Procfile` uses Gunicorn, and `vercel.json` configures a Vercel Python function. Set `GEMINI_API_KEY` in the deployment environment. Generation is designed around one Gemini request per presentation; response time still depends on Gemini and network availability.
+The included `Procfile` uses Gunicorn on hosts that run a persistent web process. Vercel detects the Flask app in `app.py` automatically and serves assets from `public/static/`. Set `GEMINI_API_KEY` in the deployment environment. Generation is designed around one Gemini request per presentation; response time still depends on Gemini and network availability.
 
 ## Project map
 
